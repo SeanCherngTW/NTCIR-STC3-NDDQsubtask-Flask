@@ -1,0 +1,6 @@
+embedding/
+__pycache__/
+PickleBert/
+BertPretrainModel/
+savemodel/
+.DS_Store

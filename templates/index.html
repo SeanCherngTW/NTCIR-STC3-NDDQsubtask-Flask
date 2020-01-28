@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>NTCIR-14 STC-3 DQ&ND subtasks</title>
+</head>
+
+<h1> NTCIR-14 STC-3 DQ & ND Subtasks </h1>
+
+<form method="POST" name="form1" action={{ url_for('show_examples') }}>
+    <h2> Choose a example dialog </h2>
+    <div>
+        Index of Dialog (0-334): <input type="text" name="CIdx" id="CIdx" maxlength="3" size="3"/>
+    </div>
+    <div>
+        <input type="submit" name="submitbutton" id="submitbutton" value="GO"/>
+    </div>
+</form>
+
+<form method="POST" name="form1" action={{ url_for('create_dialog') }}>
+    <h2> Or create a new dialogue </h2>
+    <div>
+        Customer: <input type="text" name="utt1" id="utt1" size="80"/> <br/>
+        Helpdesk: <input type="text" name="utt2" id="utt2" size="80"/> <br/>
+        Customer: <input type="text" name="utt3" id="utt3" size="80"/> <br/>
+        Helpdesk: <input type="text" name="utt4" id="utt4" size="80"/> <br/>
+        Customer: <input type="text" name="utt5" id="utt5" size="80"/> <br/>
+        Helpdesk: <input type="text" name="utt6" id="utt6" size="80"/> <br/>
+        Customer: <input type="text" name="utt7" id="utt7" size="80"/> <br/>
+    </div>
+    <div>
+        <input type="submit" name="submitbutton" id="submitbutton" value="GO"/>
+    </div>
+</form>
+
+<hr/>
+For more information, please visit: <br/>
+<a href="https://sakai-lab.github.io/stc3-dataset/">Works of NTCIR14 STC-3 Nugget Detection & Dialogue Quality tasks</a><br/>
+<a href="https://arxiv.org/abs/1907.03070">Short Text Conversation Based on Deep Neural Network and Analysis on Evaluation Measures</a>
+</body>
+</html>

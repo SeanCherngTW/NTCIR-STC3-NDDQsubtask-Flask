@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>NTCIR-14 STC-3 DQ&ND subtasks</title>
+</head>
+
+<body>
+    <h1> Dialogue Index: {{dialogid}} </h1>
+    <h2> Dialogue </h2>
+    {% for d in dialog %}
+        <ul>
+            <li>{{d.speaker}}: {{d.content}}</li>
+        </ul>
+    {% endfor %}
+
+    <hr>
+
+    <h2> Nugget Detection </h2>
+    <h3> Performance </h3>
+    <ul>
+        <li> JSD : {{JSD}} </li>
+        <li> RNSS: {{RNSS}} </li>
+    </ul>
+
+    <h3> Nugget Type </h3>
+        Catagories: CNUG*, CNUG, CNaN, CNUG0, HNUG*, HNUG, HNaN<br/>
+        <ul>
+            <li>CNUG*: Customer goal (Solution confirmed)</li>
+            <li>CNUG: Customer regular (Contains info that leads to solution)</li>
+            <li>CNaN: Customer Not-a-Nugget (Does not contain info that leads to solution)</li>
+            <li>CNUG0: Customer trigger (Problem stated)</li>
+            <li>HNUG*: Helpdesk goal (Solution stated)</li>
+            <li>HNUG: Helpdesk regular (Contains info that leads to solution)</li>
+            <li>HNaN: Helpdesk Not-a-Nugget (Does not contain info that leads to solution)</li>
+        </ul>
+    <h3> Predict </h3>
+    [CNUG*, CNUG, CNaN, CNUG0, HNUG*, HNUG, HNaN]
+    {% for d in dialog %}
+        <ul>
+            <li>{{d.pred}}</li>
+        </ul>
+    {% endfor %}
+
+    <h3> Answer </h3>
+    [CNUG*, CNUG, CNaN, CNUG0, HNUG*, HNUG, HNaN]
+    {% for d in dialog %}
+        <ul>
+            <li>{{d.answer}}</li>
+        </ul>
+    {% endfor %}
+
+    <hr>
+
+    <h2> Dialogue Quality </h2>
+    <h3> A-score: Task Accomplishment </h3>
+    Has the problem been solved? To what extent? <br/>
+    Scale: (-2, -1, 0, 1, 2)
+    <ul>
+        <li>   NMD  : {{DQA_NMD}}</li>
+        <li>  RSNOD : {{DQA_RSNOD}}</li>
+        <li> Predict: {{DQA_pred}}</li>
+        <li> Answers: {{DQA_answer}}</li>
+        <li> Predict Average: {{DQA_pred_AVG}}</li>
+        <li> Answer Average: {{DQA_ans_AVG}}</li>
+    </ul>
+
+    <h3> E-score: Dialogue Effectiveness </h3>
+    Do the utterers interact effectively to solve the problem efficiently? <br/>
+    Scale: (-2, -1, 0, 1, 2)
+    <ul>
+        <li>   NMD  : {{DQE_NMD}}</li>
+        <li>  RSNOD : {{DQE_RSNOD}}</li>
+        <li> Predict: {{DQE_pred}}</li>
+        <li> Answers: {{DQE_answer}}</li>
+        <li> Predict Average: {{DQE_pred_AVG}}</li>
+        <li> Answer Average: {{DQE_ans_AVG}}</li>
+    </ul>
+
+    <h3> S-score: Customer Satisfaction of the dialogue </h3>
+    Not of the product/service or the company <br/>
+    Scale: (-2, -1, 0, 1, 2)
+    <ul>
+        <li>   NMD  : {{DQS_NMD}}</li>
+        <li>  RSNOD : {{DQS_RSNOD}}</li>
+        <li> Predict: {{DQS_pred}}</li>
+        <li> Answers: {{DQS_answer}}</li>
+        <li> Predict Average: {{DQS_pred_AVG}}</li>
+        <li> Answer Average: {{DQS_ans_AVG}}</li>
+    </ul>
+
+<hr>
+
+<form action="/index" method="GET" name="form1">
+    <input type="submit" name="submitbutton" id="submitbutton" value="HOME"/>
+</form>
+
+</body>
+
+</html>
